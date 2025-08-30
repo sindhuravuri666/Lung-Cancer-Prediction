@@ -1,0 +1,11 @@
+fastapi
+uvicorn[standard]
+pydantic
+pydantic-settings
+scikit-learn
+pandas
+numpy
+joblib
+python-multipart
+category-encoders
+imbalanced-learn
