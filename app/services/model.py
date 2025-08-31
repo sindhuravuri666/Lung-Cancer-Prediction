@@ -1,6 +1,6 @@
 from __future__ import annotations
 from typing import Dict, Any
-import joblib
+import joblib # for saving/loading models
 import os
 from app.core.config import settings
 
@@ -10,7 +10,7 @@ _model = None  # cached global
 
 def load_model():
     global _model
-    path = settings.MODEL_PATH
+    path = settings.MODEL_PATH #
     if not os.path.exists(path):
         raise FileNotFoundError(f"Model artifact not found at {path}. Train and save the model first.")
     _model = joblib.load(path)

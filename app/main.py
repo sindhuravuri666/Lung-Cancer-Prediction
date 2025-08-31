@@ -3,19 +3,26 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.core.config import settings
 from app.schemas.predict import PredictRequest, PredictResponse
 from app.services import model as model_service
+#from fastapi import FastAPI
+from pydantic import BaseModel
+import pickle
+import numpy as np
 
 
 app = FastAPI(title=settings.APP_NAME)
 
 
+
 # CORS for frontend dev
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.cors_origins,
+    allow_origins=["*"],  # allow all origins
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+
 
 
 @app.get("/api/health")
